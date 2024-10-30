@@ -33,6 +33,9 @@ public class Store {
         return storeLocation;
     }
 
+    public void setStoreLocation(Position storeLocation) {
+        this.storeLocation = storeLocation;
+    }
 
     public String getStoreName() {
         return storeName;

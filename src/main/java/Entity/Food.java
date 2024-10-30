@@ -29,6 +29,10 @@ public class Food {
         return store;
     }
 
+    public void setFoodPrice(int foodPrice) {
+        this.foodPrice = foodPrice;
+    }
+
     public int getFoodId() {
         return foodId;
     }

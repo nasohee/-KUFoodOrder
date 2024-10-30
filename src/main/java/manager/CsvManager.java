@@ -337,14 +337,13 @@ public class CsvManager {
     public void writeOrderCsv(OrderRepository orderRepository) {
         try (BufferedWriter writer = Files.newBufferedWriter(Paths.get(orderCsvFileName))) {
             for (Order order : orderRepository.findAll()) {
-
                 // 각 Order 객체의 정보를 CSV 형식으로 변환
                 StringBuilder line = new StringBuilder();
                 line.append(order.getOrderTime()).append(",")          // 주문시간
-                        .append(order.getOrderId()).append(",")        //주문내역id
-                        .append(order.getUser().getUserId()).append(",")        // 사용자 id
-                        .append(order.getFood().getFoodName()).append(",")     // 음식 이름
-                        .append(order.getQuantity());                      // 주문 수량
+                        .append(order.getOrderId()).append(",")        // 주문내역id
+                        .append(order.getUser() != null ? order.getUser().getUserId() : "N/A").append(",")        // 사용자 id
+                        .append(order.getFood() != null ? order.getFood().getFoodName() : "N/A").append(",")     // 음식 이름
+                        .append(order.getQuantity()); // 주문 수량
 
                 // 파일에 한 줄씩 추가
                 writer.write(line.toString());

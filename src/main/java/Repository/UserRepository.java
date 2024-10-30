@@ -11,6 +11,7 @@ public class UserRepository {
     private static UserRepository memoryUserRepository;
 
     private UserRepository() {
+
     }
 
     public static UserRepository getInstance() {
@@ -19,6 +20,10 @@ public class UserRepository {
             return memoryUserRepository;
         }
         return memoryUserRepository;
+    }
+
+    public Map<String, User> getUsers() {
+        return users;
     }
 
     public void addUser(User user) {
